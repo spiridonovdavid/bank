@@ -20,7 +20,8 @@ use App\Orchid\Screens\User\UserProfileScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 use App\Orchid\Screens\ProcedureScreen;
-
+use App\Orchid\Screens\ProcedureCreateScreen;
+use App\Orchid\Screens\ProcedureEditScreen;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,8 +33,17 @@ use App\Orchid\Screens\ProcedureScreen;
 | contains the need "dashboard" middleware group. Now create something great!
 |
 */
+
+
 Route::screen('procedures', ProcedureScreen::class)
     ->name('platform.procedures');
+
+Route::screen('/procedures/create', ProcedureCreateScreen::class)
+    ->name('platform.procedure.create');
+
+Route::screen('procedures/{procedure}/edit', ProcedureEditScreen::class)
+    ->name('platform.procedure.edit');
+
 // Main
 Route::screen('/main', PlatformScreen::class)
     ->name('platform.main');
